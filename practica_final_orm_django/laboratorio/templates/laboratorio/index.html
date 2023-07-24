@@ -58,21 +58,22 @@
             </thead>
             <tbody>
               {% for laboratorio in laboratorios %}
-              <tr>
-                <td class="col">{{laboratorio.nombre}}</td>
-                <td>{{laboratorio.ciudad}}</td>
-                <td>{{laboratorio.pais}}</td>
-                <td>
-                  <a type="button" class="btn btn-outline-warning m-2" href={% url 'editar' laboratorio.id %}>
-                    Actualizar</a
-                  ><button type="button" class="btn btn-outline-danger">
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
+                <tr>
+                  <td class="col">{{laboratorio.nombre}}</td>
+                  <td>{{laboratorio.ciudad}}</td>
+                  <td>{{laboratorio.pais}}</td>
+                  <td>
+                    <a type="button" class="btn btn-outline-warning m-2" href={% url 'editar' laboratorio.id %}>
+                      Actualizar</a>
+                    <a type="button" class="btn btn-outline-danger" href="{% url 'eliminar' laboratorio.id %}">
+                      Eliminar
+                    </a>
+                  </td>
+                </tr>
               {% endfor %}
             </tbody>
           </table>
+          
         </div>
         {% endblock content %}
       </div>

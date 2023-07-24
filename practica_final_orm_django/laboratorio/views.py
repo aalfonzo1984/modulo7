@@ -41,3 +41,15 @@ def editar(request, id):
         form = LaboratorioForm(instance=laboratorio)
 
     return render(request, 'laboratorio/editar.html', {'form': form})
+
+def eliminar(request, id):
+    """ Función para eliminar los laboratorios
+        laboratorio = El objeto a editar
+        LaboratorioForm = clase de formulario
+        form = Instancia de la clase LaboratorioForm"""
+    laboratorio = Laboratorio.objects.get(id=id)
+    form = LaboratorioForm(instance=laboratorio)
+    if request.method == 'POST':
+        laboratorio.delete()
+        return redirect('index')
+    return render(request, 'laboratorio/eliminar.html', {'form':form})
