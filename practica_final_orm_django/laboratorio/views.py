@@ -53,3 +53,7 @@ def eliminar(request, id):
         laboratorio.delete()
         return redirect('index')
     return render(request, 'laboratorio/eliminar.html', {'form':form})
+
+
+def laboratorio(request):
+    return render(request, 'laboratorio/laboratorio.html')
